@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:indeed_ui/views/home_screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,8 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.red,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
     );
   }
 }
