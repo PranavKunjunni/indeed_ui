@@ -156,7 +156,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             // Section
             Text(
-              "improve your job matches",
+              "improve your job matches", // data
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 16,
