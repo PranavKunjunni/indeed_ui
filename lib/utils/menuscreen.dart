@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:indeed_ui/views/my_jobs_screen/my_job_screen.dart';
 import 'package:indeed_ui/views/profile_screen/profile_screen.dart';
 
 class menuscreen extends StatelessWidget {
@@ -97,6 +98,29 @@ class menuscreen extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(
+                    "My jobs",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                  onTap: () {
+                    print("My jobs");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyJobScreen(),
+                      ),
+                    );
+                  },
+                ),
+                Divider(
+                  color: Colors.black,
+                  thickness: 0.1,
+                ),
+                ListTile(
+                  title: Text(
                     "Profile",
                     style: TextStyle(
                         color: Colors.black,
@@ -162,7 +186,7 @@ class menuscreen extends StatelessWidget {
                   ),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    print("Accessibility at indeed");
+                    print("Sign out");
                   },
                 ),
                 Divider(
