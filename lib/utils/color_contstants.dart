@@ -6,3 +6,4 @@ final List<Color> msgContainerColors = [
   Colors.green,
 ];
 final textColor = Colors.grey;
+final iconsColor = Colors.black;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:indeed_ui/views/detalis_screen/detalis_screen.dart';
 import 'package:indeed_ui/views/localdata.dart';
 
 class JobDetails extends StatelessWidget {
@@ -14,7 +15,13 @@ class JobDetails extends StatelessWidget {
         Localdata.Job_deatils.length,
         (index) => InkWell(
           onTap: () {
-            print("object");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetalisScreen(),
+              ),
+            );
+            print("DetalisScreen");
           },
           child: Padding(
             padding: const EdgeInsets.only(bottom: 10),
@@ -91,12 +98,12 @@ class JobDetails extends StatelessWidget {
                                   Localdata.Job_deatils[index]['Salary'],
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color:  Colors.green.shade900),
+                                      color: Colors.green.shade900),
                                 ),
                                 SizedBox(width: 5),
                                 Icon(
                                   Icons.favorite,
-                                  color:  Colors.green.shade900,
+                                  color: Colors.green.shade900,
                                 ),
                               ],
                             ),
