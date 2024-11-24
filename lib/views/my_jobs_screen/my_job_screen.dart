@@ -9,7 +9,7 @@ class MyJobScreen extends StatelessWidget {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
+          // automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           title: Padding(
             padding: const EdgeInsets.only(left: 20),
@@ -94,121 +94,209 @@ class MyJobScreen extends StatelessWidget {
             _applied(),
             // Section
             _interviews(),
-            Center(
-              child: Text("No archived jobs yet!"),
-            ),
+            // Section
+            _archived(),
           ],
         ),
       ),
     );
   }
 
+  Widget _archived() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Column(
+        children: [
+          Image.asset("assets/images/archived.png"),
+          Text(
+            "Nothing yet",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text("Application you archive appear here."),
+          SizedBox(height: 10),
+          Text(
+            "Not seeing an archived application?",
+            style: TextStyle(
+              color: Colors.blue.shade900,
+              fontWeight: FontWeight.bold,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   Widget _interviews() {
-    return Column(
-      children: [
-        Image.asset(
-          "assets/images/interviwes.png",
-          fit: BoxFit.fill,
-        ),
-        Text(
-          "No interviews Yet",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Image.asset(
+            "assets/images/interviwes.png",
+            fit: BoxFit.fill,
           ),
-        ),
-        SizedBox(height: 10),
-        Text("Scheduled interviews appear here."),
-        SizedBox(height: 10),
-        Text(
-          "Not seeing an interview?",
-          style: TextStyle(
-            color: Colors.blue.shade900,
-            fontWeight: FontWeight.bold,
+          Text(
+            "No interviews Yet",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(height: 30),
-        Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Colors.grey[300],
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "interviews services",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
+          SizedBox(height: 10),
+          Text("Scheduled interviews appear here."),
+          SizedBox(height: 10),
+          Text(
+            "Not seeing an interview?",
+            style: TextStyle(
+              color: Colors.blue.shade900,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 30),
+          Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      color: Colors.grey[300],
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 10, right: 10, bottom: 100),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "interviews services",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(
-                              left: 20,
-                              top: 10,
+                            SizedBox(
+                              height: 20,
                             ),
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Setup device for interview",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                            Container(
+                              padding: EdgeInsets.only(
+                                left: 20,
+                                top: 10,
+                              ),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Setup device for interview",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "Test your camera and microphone ahead of time",
-                                    ),
-                                    Image.asset("assets/images/interviwes1.png")
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "Test your deveice",
-                                      style: TextStyle(
-                                        color: Colors.blue.shade900,
-                                        fontWeight: FontWeight.bold,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Test your camera and microphone ahead ",
                                       ),
-                                    ),
-                                    SizedBox(width: 5,),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.blue.shade900,
-                                    )
-                                  ],
-                                ),
-                              ],
+                                      Image.asset(
+                                          "assets/images/interviwes1.png")
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Test your deveice",
+                                        style: TextStyle(
+                                          color: Colors.blue.shade900,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: Colors.blue.shade900,
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox()
-                        ],
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(
+                                left: 20,
+                                top: 10,
+                              ),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Setup device for interview",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Test your camera and microphone ahead ",
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                      ),
+                                      Image.asset(
+                                        "assets/images/interviwes1.png",
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Test your deveice",
+                                        style: TextStyle(
+                                          color: Colors.blue.shade900,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: Colors.blue.shade900,
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
-        )
-      ],
+                ],
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 

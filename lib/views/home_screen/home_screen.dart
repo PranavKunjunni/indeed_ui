@@ -3,6 +3,7 @@ import 'package:indeed_ui/utils/images_contstants.dart';
 import 'package:indeed_ui/utils/jobdetails.dart';
 import 'package:indeed_ui/utils/menuscreen.dart';
 import 'package:indeed_ui/views/message_screen/message_screen.dart';
+import 'package:indeed_ui/views/notification_screen/notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,7 +81,12 @@ class _HomeScreenState extends State<HomeScreen>
                 SizedBox(width: 20),
                 InkWell(
                   onTap: () {
-                    print("Notification");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NotificationScreen(),
+                      ),
+                    );
                   },
                   child: Icon(Icons.notifications),
                 ),
@@ -182,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen>
             GestureDetector(
               onTap: _toggleMenu,
               child: Container(
-                color: Colors.black.withOpacity(0.5), 
+                color: Colors.black.withOpacity(0.5),
                 child: SlideTransition(
                   position: _offsetAnimation,
                   child: menuscreen(
