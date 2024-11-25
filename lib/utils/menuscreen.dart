@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:indeed_ui/views/my_jobs_screen/my_job_screen.dart';
+import 'package:indeed_ui/views/my_reviews_screen/my_reviews_screen.dart';
 import 'package:indeed_ui/views/profile_screen/profile_screen.dart';
 
 class menuscreen extends StatelessWidget {
@@ -35,7 +36,13 @@ class menuscreen extends StatelessWidget {
                   ),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    print("Company reviews");
+                    // print("Company reviews");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyReviewsScreen(),
+                      ),
+                    );
                   },
                 ),
                 Divider(

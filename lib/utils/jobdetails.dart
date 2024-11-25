@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:indeed_ui/views/detalis_screen/detalis_screen.dart';
 import 'package:indeed_ui/views/localdata.dart';
 
