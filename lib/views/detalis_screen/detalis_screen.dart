@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:indeed_ui/utils/color_contstants.dart';
 
 class DetalisScreen extends StatefulWidget {
@@ -23,6 +24,12 @@ class _DetalisScreenState extends State<DetalisScreen> {
             color: iconsColor,
           ),
         ),
+        actions: [
+          Icon(Icons.share),
+          SizedBox(
+            width: 10,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -110,10 +117,122 @@ class _DetalisScreenState extends State<DetalisScreen> {
             ),
             // Section
             SizedBox(height: 10),
-            _fullJobDescription()
+            _fullJobDescription(),
+            Divider(
+              color: Colors.black12,
+            ),
+            // Section
+            SizedBox(
+              height: 30,
+            ),
+            _buttons(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buttons() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              EvaIcons.flash,
+              color: Colors.blue,
+              size: 20,
+            ),
+            SizedBox(width: 5),
+            Text(
+              "Typically responds within 1 day",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.only(bottom: 15, top: 15),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.blue[900]),
+            child: Center(
+              child: Text(
+                "Apply now",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.only(bottom: 15, top: 15),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[350]),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.bookmark_border),
+                Text(
+                  "Save job",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.only(bottom: 15, top: 15),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[350]),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.flag),
+                Text(
+                  "Report job",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Divider(
+          height: 5,
+          color: Colors.black,
+        ),
+        SizedBox(
+          height: 20,
+        )
+      ],
     );
   }
 
@@ -134,8 +253,28 @@ class _DetalisScreenState extends State<DetalisScreen> {
           SizedBox(height: 20),
           Text(
             _showFullDescription
-                ? "The News Reporter is responsible for researching, investigating, and presenting news stories to inform the public on current events. This role requires gathering information, conducting interviews, and writing or editing news articles to deliver accurate and timely reports."
-                : "The News Reporter is responsible for researching, investigating, and presenting news stories...",
+                ? """The News Reporter is responsible for researching, investigating, and presenting news stories to inform the public on current events. 
+This role requires gathering information, conducting interviews, and writing or editing news articles to deliver accurate and timely reports.
+
+Job Type: Full-time
+Pay: ₹9,795.61 - ₹25,000.00 per month
+
+Schedule:
+- Day shift
+
+Supplemental Pay:
+- Performance bonus
+
+Experience:
+- Total work: 1 year (Preferred)
+- Anchoring: 1 year (Required)
+
+License/Certification:
+- Journalism and mass communication certification (Preferred)
+
+Work Location: In-person
+              """
+                : "The News Reporter is responsible for researching, investigating, and presenting news stories.",
             style: TextStyle(fontSize: 14),
           ),
           GestureDetector(
@@ -144,12 +283,17 @@ class _DetalisScreenState extends State<DetalisScreen> {
                 _showFullDescription = !_showFullDescription;
               });
             },
-            child: Text(
-              _showFullDescription ? "Show Less" : "Show More",
-              style: TextStyle(
-                color: Colors.blue,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Row(
+              children: [
+                Text(
+                  _showFullDescription ? "Show Less" : "Show More",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Icon(Icons.keyboard_arrow_down_sharp)
+              ],
             ),
           ),
         ],
