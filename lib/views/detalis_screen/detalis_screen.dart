@@ -9,6 +9,7 @@ class DetalisScreen extends StatefulWidget {
 }
 
 class _DetalisScreenState extends State<DetalisScreen> {
+  bool _showFullDescription = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,40 +24,313 @@ class _DetalisScreenState extends State<DetalisScreen> {
           ),
         ),
       ),
-      body: Column(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 15,
+                top: 30,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "News Reporter",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text("A N D Groups"),
+                  Text("Kochi,Kerala")
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Divider(
+              color: Colors.black12,
+            ),
+            SizedBox(height: 20),
+            // Section
+            _profile(),
+            // Section
+            SizedBox(height: 20),
+            Divider(
+              color: Colors.black12,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            // Section
+            _jobdetails(),
+            SizedBox(height: 20),
+            Divider(
+              color: Colors.black12,
+            ),
+            // Section
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Location",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.location_on,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("Kochi,Kerala"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Divider(
+              color: Colors.black12,
+            ),
+            // Section
+            SizedBox(height: 10),
+            _fullJobDescription()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding _fullJobDescription() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 15,
-              top: 30,
+          Text(
+            "Full job description",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "News Reporter",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+          ),
+          SizedBox(height: 20),
+          Text(
+            _showFullDescription
+                ? "The News Reporter is responsible for researching, investigating, and presenting news stories to inform the public on current events. This role requires gathering information, conducting interviews, and writing or editing news articles to deliver accurate and timely reports."
+                : "The News Reporter is responsible for researching, investigating, and presenting news stories...",
+            style: TextStyle(fontSize: 14),
+          ),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                _showFullDescription = !_showFullDescription;
+              });
+            },
+            child: Text(
+              _showFullDescription ? "Show Less" : "Show More",
+              style: TextStyle(
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Padding _jobdetails() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Job details",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text("Hereshow the job details with your profile."),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.money,
+                color: Colors.grey[600],
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "Pay",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
                 ),
-                Text("A N D Groups"),
-                Text("Kochi,Kerala")
-              ],
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 33, right: 90),
+            child: Container(
+              padding: EdgeInsets.only(left: 5, top: 10, bottom: 10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.green[100]),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.green[700],
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    "9,795.61 - 25,000.00 a month",
+                    style: TextStyle(
+                      color: Colors.green[700],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down_outlined,
+                    color: Colors.green[700],
+                  ),
+                ],
+              ),
             ),
           ),
-          SizedBox(height: 20),
-          Divider(
-            color: Colors.black12,
+          SizedBox(height: 5),
+          Row(
+            children: [
+              Icon(
+                Icons.card_travel,
+                color: Colors.grey[600],
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "Job type",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 20),
-          // Section
-          _profile(),
-          // Section
-          SizedBox(height: 20),
-          Divider(
-            color: Colors.black12,
+          Padding(
+            padding: const EdgeInsets.only(left: 33, right: 220),
+            child: Container(
+              padding: EdgeInsets.only(left: 5, top: 10, bottom: 10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.green[100]),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.green[700],
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    "Full-time",
+                    style: TextStyle(
+                      color: Colors.green[700],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down_outlined,
+                    color: Colors.green[700],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Row(
+            children: [
+              Icon(
+                Icons.alarm_outlined,
+                color: Colors.grey[600],
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "Shift and schedule",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 33, right: 220),
+            child: Container(
+              padding: EdgeInsets.only(left: 5, top: 10, bottom: 10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.green[100]),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.green[700],
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    "Full-time",
+                    style: TextStyle(
+                      color: Colors.green[700],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down_outlined,
+                    color: Colors.green[700],
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

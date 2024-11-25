@@ -171,7 +171,7 @@ class JobDetails extends StatelessWidget {
                       Row(
                         children: [
                           Icon(
-                            Bootstrap.rocket_takeoff_fill,
+                            Icons.send_rounded,
                             color: Colors.blue,
                           ),
                           SizedBox(
