@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:indeed_ui/views/language_screen/language_screen.dart';
 import 'package:indeed_ui/views/my_jobs_screen/my_job_screen.dart';
 import 'package:indeed_ui/views/my_reviews_screen/my_reviews_screen.dart';
 import 'package:indeed_ui/views/profile_screen/profile_screen.dart';
+import 'package:indeed_ui/views/settings_screen/settings_screen.dart';
 
 class menuscreen extends StatelessWidget {
   const menuscreen({
@@ -59,7 +61,13 @@ class menuscreen extends StatelessWidget {
                   ),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    print("Settings");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingsScreen(),
+                      ),
+                    );
+                    print("Settings Screen");
                   },
                 ),
                 Divider(
@@ -96,7 +104,13 @@ class menuscreen extends StatelessWidget {
                   ),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    print("Country and language");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LanguageScreen(),
+                      ),
+                    );
+                    // print("Country and language");
                   },
                 ),
                 Divider(
