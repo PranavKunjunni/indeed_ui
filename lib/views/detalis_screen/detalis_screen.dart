@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:indeed_ui/utils/color_contstants.dart';
+import 'package:indeed_ui/views/detalis_screen/apply_screen/apply_screen.dart';
 
 class DetalisScreen extends StatefulWidget {
   const DetalisScreen({super.key});
@@ -157,18 +158,29 @@ class _DetalisScreenState extends State<DetalisScreen> {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
-          child: Container(
-            width: double.infinity,
-            padding: EdgeInsets.only(bottom: 15, top: 15),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.blue[900]),
-            child: Center(
-              child: Text(
-                "Apply now",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ApplyScreen(),
+                ),
+              );
+              print("Apply");
+            },
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.only(bottom: 15, top: 15),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.blue[900]),
+              child: Center(
+                child: Text(
+                  "Apply now",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
