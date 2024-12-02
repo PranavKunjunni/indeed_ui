@@ -65,20 +65,20 @@ class _SplashScreenState extends State<Signup> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                          "Privacy Policy",
-                          style: TextStyle(
-                            fontSize: 16,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                        SizedBox(height: 10),
+                      "Privacy Policy",
+                      style: TextStyle(
+                        fontSize: 16,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    SizedBox(height: 10),
                     Text(
-                          "Your Privacy Choices",
-                          style: TextStyle(
-                            fontSize: 16,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
+                      "Your Privacy Choices",
+                      style: TextStyle(
+                        fontSize: 16,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
                   ],
                 ),
               ),
